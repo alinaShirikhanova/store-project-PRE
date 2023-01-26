@@ -1,0 +1,26 @@
+body {
+    background: url("../img/bg4.webp") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+
+.box {
+ display: flex;
+  align-items: center;
+  justify-content: center;}
+.box div {
+width: 400px;
+}
+#start-btn {
+    background-color: #23364e;
+    border-color: #23364e;
+    color: white;
+}
+
+#start-btn-link {
+    text-decoration: none;
+    color: white;
+}
