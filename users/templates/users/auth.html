@@ -1,0 +1,31 @@
+{% extends 'layout/base_users.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card bg-light mb-3">
+        <div class="card-header">Авторизация</div>
+        <div class="card-body">
+            <form action="{% url 'auth' %}" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="{{ form.username.id_for_label }}" class="form-label">Имя пользователя</label>
+                    {{ form.username }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.password.id_for_password }}" class="form-label">Пароль</label>
+                    {{ form.password }}
+                </div>
+                <div class="auth">
+                    <button type="submit" class="btn btn-dark">Авторизоваться</button>
+                    <p>Забыли пароль?</p>
+                </div>
+            </form>
+            <div class="card_footer">
+                <p>Нет аккаунта? <a href="{% url 'register' %}">Регистрация</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+body {
+    background-color: rgb(247, 244, 241);
+}
+
+.card {
+    width: 1000px;
+    height: 400px;
+}
+
+.flex-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.card_footer {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-container a {
+color: gray;
+}
+
+.card_footer a {
+color: gray;}
+
+.container {
+    display: flex;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+}

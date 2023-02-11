@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">{{ category.name }}</h5>
-                    <a href="#" class="btn btn-primary">В корзину</a>
+                    <a href="{% url 'products' category.id %}" class="btn btn-primary">Перейти</a>
                 </div>
             </div>
         </div>

@@ -1,0 +1,53 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/products.css' %}"> {% endblock %}
+{% block content %}
+<div class="container">
+    <div class="category_name">
+        <h1>{{ category.name }}</h1>
+    </div>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card" style="width: 18rem;">
+                <div class="image">
+                    <img src="{{ product.image.url }}">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <a href="#" class="btn btn-primary">В корзину</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <nav aria-label="Page navigation example page_nav">
+        <ul class="pagination" style="justify-content: center;">
+            <li class="page-item">
+                <a class="page-link" {% if not products.has_previous %} disabled {% endif %}
+                    href="{% if products.has_previous %} {% url 'paginator' category.id products.previous_page_number %} {% else %} # {% endif %}">
+                    Previous
+                </a>
+            </li>
+            {% for page in products.paginator.page_range %}
+            <li class="page-item">
+                <a class="page-link" href="{% url 'paginator' category.id page %}">
+                    {{ page }}
+                </a>
+            </li>
+            {% endfor %}
+            <li class="page-item">
+                <a class="page-link" {% if not products.has_next %} disabled {% endif %}
+                    href="{% if products.has_next %} {% url 'paginator' category.id products.next_page_number %} {% else %} # {% endif %}">
+                    Next
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+{% endblock %}

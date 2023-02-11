@@ -1,0 +1,29 @@
+[
+  {
+    "model": "products.category",
+    "pk": 1,
+    "fields": {
+      "name": "Дизайнерская мебель",
+      "description": "",
+      "image": "category_images/design_furniture_SY6L7RF.PNG"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 2,
+    "fields": {
+      "name": "Светильники",
+      "description": "",
+      "image": "category_images/lamps_OZfGCFv.PNG"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 3,
+    "fields": {
+      "name": "Освещение",
+      "description": "",
+      "image": "category_images/lighting.PNG"
+    }
+  }
+]

@@ -19,4 +19,4 @@ class Product(models.Model):
     category = models.ForeignKey(to=Category, on_delete=models.PROTECT)
 
     def __str__(self):
-        return {self.name}
+        return self.name
