@@ -29,7 +29,7 @@
                                     class="d-inline-block align-top" alt="" loading="lazy">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="{% url 'profile' %}">Личный кабинет</a></li>
+                                <li><a class="dropdown-item" href="{% url 'profile' user.id %}">Личный кабинет</a></li>
                                 <li><a class="dropdown-item" href="#">Мои заказы</a></li>
                                 {% if user.is_superuser %}
                                 <li><a class="dropdown-item" href="{% url 'admin:index' %}">Админка</a></li>

@@ -4,18 +4,14 @@
 <link rel="stylesheet" href="{% static 'css/basket.css' %}"> {% endblock %}
 
 {% block content %}
-
 <div class="container">
-
     {% if baskets %}
     <h2>Корзина</h2>
     {% for basket in baskets %}
-
     <div class="row">
         <div class="col-sm-6 col-md-5">
             <div class="thumbnail">
                 <img src="{{ basket.product.image.url }}" style="width: 200px;" alt="...">
-
             </div>
         </div>
         <div class="col-sm-6 col-md-5">
@@ -25,15 +21,15 @@
                     <p>{{ basket.product.description }}</p>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="">-</a></li>
+                            <li class="page-item"><a class="page-link" href="{% url 'remove_product' basket.product.id %}">-</a></li>
                             <li class="page-link">{{ basket.quantity }}</li>
-                            <li class="page-item"><a class="page-link" href="">+</a></li>
+                            <li class="page-item"><a class="page-link" href="{% url 'add_product' basket.product.id %}">+</a></li>
                         </ul>
                     </nav>
                     <div class="col-lg-4">
-                        <p>{{ basket.sum}} руб.</p>
+                        <p>{{ basket.sum }} руб.</p>
                     </div>
-                    <p><button class="btn btn-primary btn-buy" id="1">Удалить</button></p>
+                    <p><a class="btn btn-primary btn-buy" href="{% url 'delete_product' basket.id %}">Удалить</a></p>
                 </div>
             </div>
         </div>
@@ -42,12 +38,10 @@
     <div class="line" style="
         border-bottom: 1px solid rgb(240, 237, 237);
        "></div>
-
     {% endfor %}
     <p class="float-left">Итого</p>
     <h4 class="float-right">{{ baskets.total_sum }} руб.</h4>
 </div>
-
 {% else %}
 <h2>Корзина пуста</h2>
 {% endif %}

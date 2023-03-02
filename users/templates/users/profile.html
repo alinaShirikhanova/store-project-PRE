@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{% static 'css/profile.css' %}">{% endblock %}
 {% block content %}
 <div class="container">
-    <form action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
+    <form action="{% url 'profile' user.id %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="row">
             <div class="col-md-6">

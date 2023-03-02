@@ -24,30 +24,32 @@
         {% endfor %}
     </div>
 
-
+{% if is_paginated %}
     <nav aria-label="Page navigation example page_nav">
         <ul class="pagination" style="justify-content: center;">
             <li class="page-item">
-                <a class="page-link" {% if not products.has_previous %} disabled {% endif %}
-                    href="{% if products.has_previous %} {% url 'paginator' category.id products.previous_page_number %} {% else %} # {% endif %}">
+                <a class="page-link"
+                    href="{% if page_obj.has_previous %}
+                    ?category_id={{ category.id }}&page={{ page_obj.previous_page_number }} {% endif %}">
                     Previous
                 </a>
             </li>
-            {% for page in products.paginator.page_range %}
+            {% for page in paginator.page_range %}
             <li class="page-item">
-                <a class="page-link" href="{% url 'paginator' category.id page %}">
+                <a class="page-link" href="?category_id={{ category.id }}&page={{ page }}">
                     {{ page }}
                 </a>
             </li>
             {% endfor %}
             <li class="page-item">
-                <a class="page-link" {% if not products.has_next %} disabled {% endif %}
-                    href="{% if products.has_next %} {% url 'paginator' category.id products.next_page_number %} {% else %} # {% endif %}">
+                <a class="page-link"
+                    href="{% if page_obj.has_next %}
+                    ?category_id={{ category.id }}&page={{ page_obj.next_page_number }} {% endif %}">
                     Next
                 </a>
             </li>
         </ul>
     </nav>
+    {% endif %}
 </div>
-
 {% endblock %}

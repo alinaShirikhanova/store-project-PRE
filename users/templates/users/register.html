@@ -52,6 +52,10 @@
             <div class="card_footer">
                 <p>Есть аккаунт? <a href="{% url 'auth' %}">Войти</a></p>
             </div>
+
+            {% if form.errors %}
+            <p>{{ form.errors }}</p>
+            {% endif %}
         </div>
     </div>
 
